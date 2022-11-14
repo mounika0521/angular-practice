@@ -1,0 +1,35 @@
+<p>forms works!</p>
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+  <div class="col-md-6">
+    <div class="bg-primary">
+      <div class="container">
+        <form [formGroup]="loginForm" class="p-4">
+          <label><b>UserName</b></label>
+                  <input type="text" formControlName="username" class="form-control"><br>
+                  <label><b>Password</b></label>
+                  <input type="password" formControlName="password" class="form-control"><br>
+                <button type="button" class="btn btn-success" (click)="addFeild()">Add</button><br>
+
+                <div formArrayName="address">
+                  <div *ngFor="let list of addressList;let i=index">
+                    <input type="text" [formControlName]="i" class="form-control">
+                   <button type="button" (click)="removeFeild(list)" class="btn btn-danger">Remove</button>
+                  </div>
+
+                </div>
+                <br>
+                  <button type="button" (click)="onClick(loginForm)" class="btn btn-warning">Submit</button>
+                </form>
+      </div>
+
+    </div>
+
+  </div>
+  <div class="col-md-3">
+
+  </div>
+</div>
+
